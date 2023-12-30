@@ -1,0 +1,40 @@
+body{
+    background-image: url("images/bg.jpg");
+    background-repeat: no-repeat;
+    background-position: cover;
+}
+
+nav{
+ background-color:rgb(200, 233, 240);
+}
+
+#card-header1{
+    background-color: rgb(242, 242, 138);
+}
+
+#card-body1{
+    background-image: url(images/temp-bg.jpg);
+}
+
+#card-header2{
+    background-color: rgb(160, 232, 237);
+}
+
+#card-body2{
+    background-image: url(images/humidity-bg.jpg);
+    
+}
+
+#card-header3{
+    background-color: rgb(137, 206, 255);
+}
+
+#card-body3{
+    background-image: url(images/wind-bg.jpg);
+    
+}
+.table{
+    width: 100%;
+    opacity:0.6;
+    
+}

@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My weather app</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+  <head>
+  <body>
+    <nav class="navbar navbar-expand-lg ">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"> Weather App</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span id="" class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-0 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+            
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    About the App
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link ">Usage Guide</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-0" type="search" id="city" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit" id="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+      <div class="container">
+        <main>
+            <h1 class="assam text-center">Weather for <span id="cityName"></span></h1>
+            <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+              <div class="col" id="col1">
+                <div class="card mb-4 rounded-3 shadow-sm" id="card1">
+                  <div class="card-header py-3" id="card-header1">
+                    <h4 class="my-0 fw-normal">Temperatures</h4>
+                  </div>
+                  <div class="card-body" id="card-body1">
+                    <h1 class="card-title pricing-card-title"><span id="temp2"></span><small class="text-body-secondary fw-light"><sup><span>&#8451;</span></sup></small>
+                      <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M416 64a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm0 128A96 96 0 1 0 416 0a96 96 0 1 0 0 192zM96 112c0-26.5 21.5-48 48-48s48 21.5 48 48V276.5c0 17.3 7.1 31.9 15.3 42.5C217.8 332.6 224 349.5 224 368c0 44.0-35.8 80-80 80s-80-35.8-80-80c0-18.5 6.0-35.4 16.7-48.9C88.9 308.4 96 293.8 96 276.5V112zM144 0C82.1 0 32 50.0 32 112V276.5c0 .1-.1 .3-.0 .6c-.0 .6-.8 1.6-1.7 0.8C11.0 304.0 0 334.8 0 368c0 79.5 64.5 144 144 144s144-64.5 144-144c0-33.0-11.0-63.8-30.1-88.1c-.9-1.0-1.5-0.0-1.7-0.8c-.1-.3-.0-.5-.0-.6V112C256 50.0 205.9 0 144 0zm0 416c26.5 0 48-21.5 48-48c0-20.9-13.4-38.7-32-45.3V112c0-8.8-7.0-16-16-16s-16 7.0-16 16V322.7c-18.6 6.6-32 24.4-32 45.3c0 26.5 21.5 48 48 48z"/></svg>
+                    </h1>
+                      <ul class="list-unstyled mt-3 mb-4">
+                      <li>Temperatures is <span id="temp"></span></li>
+                      <li>Minimum Temperature is <span id="min_temp"></span></li>
+                      <li>Maximun Temperature is <span id="max_temp"></span></li>
+                      
+                    </ul>
+                    <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col" id="col2">
+                <div class="card mb-4 rounded-3 shadow-sm" id="card2">
+                  <div class="card-header py-3" id="card-header2">
+                    <h4 class="my-0 fw-normal">Humidity Info</h4>
+                  </div>
+                  <div class="card-body" id="card-body2">
+                    <h1 class="card-title pricing-card-title"><span id="humidity2"></span><small class="text-body-secondary fw-light"> %</small><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M32 144c0 79.5 64.5 144 144 144H299.3c22.6 19.9 52.0 32 84.7 32s62.1-12.1 84.7-32H496c61.9 0 112-50.1 112-112s-50.1-112-112-112c-10.7 0-21 1.5-30.8 4.3C443.8 27.7 401.1 0 352 0c-32.6 0-62.4 12.0-85.1 32.3C242.1 12.1 210.5 0 176 0C96.5 0 32 64.5 32 144zM616 368H280c-13.3 0-24 10.7-24 24s10.7 24 24 24H616c13.3 0 24-10.7 24-24s-10.7-24-24-24zm-64 96H440c-13.3 0-24 10.7-24 24s10.7 24 24 24H552c13.3 0 24-10.7 24-24s-10.7-24-24-24zm-192 0H24c-13.3 0-24 10.7-24 24s10.7 24 24 24H360c13.3 0 24-10.7 24-24s-10.7-24-24-24zM224 392c0-13.3-10.7-24-24-24H96c-13.3 0-24 10.7-24 24s10.7 24 24 24H200c13.3 0 24-10.7 24-24z"/></svg></h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>wind degree is <span id="wind_degrees"></span></li>
+                        <li>Feels like <span id="feels_like"></span></li>
+                        <li>humidity is <span id="humidity"></span></li>
+
+                    </ul>
+                    <button type="button" class="w-100 btn btn-lg btn-outline-primary">Get started</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col" id="col3">
+                <div class="card mb-4 rounded-3 shadow-sm" id="card3">
+                  <div class="card-header py-3" id="card-header3">
+                    <h4 class="my-0 fw-normal">Wind Info</h4>
+                  </div>
+                  <div class="card-body" id="card-body3">
+                    <h1 class="card-title pricing-card-title"><span id="wind_speed2"></span><small class="text-body-secondary fw-light"> km/hr</small><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M288 32c0 17.7 14.3 32 32 32h32c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H352c53 0 96-43 96-96s-43-96-96-96H320c-17.7 0-32 14.3-32 32zm64 352c0 17.7 14.3 32 32 32h32c53 0 96-43 96-96s-43-96-96-96H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H384c-17.7 0-32 14.3-32 32zM128 512h32c53 0 96-43 96-96s-43-96-96-96H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H160c17.7 0 32 14.3 32 32s-14.3 32-32 32H128c-17.7 0-32 14.3-32 32s14.3 32 32 32z"/></svg></h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                      <li>wind speed is <span id="wind_speed"></span></li>
+                      <li>Sun rise time is <span id="sunrise"></span></li>
+                      <li>Sun set time is <span id="sunset"></span></li>  
+                    </ul>
+                    <button type="button" class="w-100 btn btn-lg btn-outline-primary">Get started</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+        
+            <h2 class="display-6 text-center mb-4">Weather of other common places</h2>
+        
+            <div class="table-responsive">
+              <table class="table text-center">
+                <thead>
+                  <tr>
+                    <th style="width: 0%;"></th>
+                    <th style="width: 1%;"> Cloud_pct </th>
+                    <th style="width: 1%;"> Feels_like </th>
+                    <th style="width: 1%;"> Humidity </th>
+                    <th style="width: 1%;"> Max_temp </th>
+                    <th style="width: 1%;"> Min_temp </th>
+                    <th style="width: 1%;"> Sunrise </th>
+                    <th style="width: 1%;"> Sunset </th>
+                    <th style="width: 1%;"> Temp </th>
+                    <th style="width: 1%;"> Wind_degrees </th>
+                    <th style="width: 1%;"> Wind_speed </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row" class="text-start" id="ShanghaiID">Shanghai</th>
+                    <td id="shanghaiIDcloudPct">0</td>
+                    <td id="shanghaiIDfeelsLike">0</td>
+                    <td id="shanghaiIDhumidity">0</td>
+                    <td id="shanghaiIDmaxTemp">0</td>
+                    <td id="shanghaiIDminTemp">0</td>
+                    <td id="shanghaiIDsunrise">0</td>
+                    <td id="shanghaiIDsunset">0</td>
+                    <td id="shanghaiIDtemp">0</td>
+                    <td id="shanghaiIDwindDegrees">0</td>
+                    <td id="shanghaiIDwindSpeed">9</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="text-start" id="bostonID">Boston</th>
+                    <td id="bostonIDcloudPct">0</td>
+                    <td id="bostonIDfeelsLike">0</td>
+                    <td id="bostonIDhumidity">0</td>
+                    <td id="bostonIDmaxTemp">0</td>
+                    <td id="bostonIDminTemp">0</td>
+                    <td id="bostonIDsunrise">0</td>
+                    <td id="bostonIDsunset">0</td>
+                    <td id="bostonIDtemp">0</td>
+                    <td id="bostonIDwindDegrees">0</td>
+                    <td id="bostonIDwindSpeed">0</td>
+                  </tr>
+                </tbody>
+        
+                <tbody>
+                  <tr>
+                    <th scope="row" class="text-start" id="lucknowID">Lucknow</th>
+                    <td id="lucknowIDcloudPct">0</td>
+                    <td id="lucknowIDfeelsLike">0</td>
+                    <td id="lucknowIDhumidity">0</td>
+                    <td id="lucknowIDmaxTemp">0</td>
+                    <td id="lucknowIDminTemp">0</td>
+                    <td id="lucknowIDsunrise">0</td>
+                    <td id="lucknowIDsunset">0</td>
+                    <td id="lucknowIDtemp">0</td>
+                    <td id="lucknowIDwindDegrees">0</td>
+                    <td id="lucknowIDwindSpeed">0</td>
+                </tr>
+                  <tr>
+                    <th scope="row" class="text-start" id="kolkataID">Kolkata</th>
+                    
+                    <td id="kolkataIDcloudPct">0</td>
+                    <td id="kolkataIDfeelsLike">0</td>
+                    <td id="kolkataIDhumidity">0</td>
+                    <td id="kolkataIDmaxTemp">0</td>
+                    <td id="kolkataIDminTemp">0</td>
+                    <td id="kolkataIDsunrise">0</td>
+                    <td id="kolkataIDsunset">0</td>
+                    <td id="kolkataIDtemp">0</td>
+                    <td id="kolkataIDwindDegrees">0</td>
+                    <td id="kolkataIDwindSpeed">0</td>
+                    </tr>
+                 
+                </tbody>
+              </table>
+            </div>
+          </main>
+      </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<script src="script.js"></script>  
+</body>
+</html>
